@@ -1,0 +1,20 @@
+using ResultMap = boost::multi_index_container<
+  indexed_by<
+    ordered_unique<
+      tag<checksum>, BOOST_MULTI_INDEX_MEMBER(ResultValue, size_t, checksum)>,
+    ordered_non_unique<
+      tag<files>, BOOST_MULTI_INDEX_MEMBER(ResultValue, boost::unordered_set<std::string>,filenames)> >
+> ;
+
+
+        const auto checksum = hashes1
+        const auto found = m_resultMap.get<0>().find(hashes1);
+        if (found != m_resultMap.end())
+        {
+
+        }
+        else
+        {
+            const auto& foundItem = *found;
+            //foundItem.insert(p1.string());
+        }
